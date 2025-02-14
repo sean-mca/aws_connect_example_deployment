@@ -1,6 +1,7 @@
 import { Stage, StageProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import { ApplicationTier } from '../tiers/Application';
+import { AllTiers } from '../tiers/AllTiers';
+
 
 
 export class DeploymentStage extends Stage {
@@ -8,7 +9,7 @@ export class DeploymentStage extends Stage {
         super(scope, id, props);
 
 
-        // const appTier = new ApplicationTier(this, 'dv-applicationtier', {});
+        const all_tiers = new AllTiers(this, 'examplestage', {});
 
 
 

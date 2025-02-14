@@ -3,10 +3,11 @@ import { ConnectStorageConfig } from "../../templates/StorageConfig";
 import { CoreInstance } from "../../templates/CoreInstance";
 import { PhoneNumber } from "../../templates/PhoneNumber";
 import { Hoop } from "../../templates/HOOP";
+import { NestedStack, Stack } from "aws-cdk-lib";
 
 interface ApplicationTierProps { };
 
-export class ApplicationTier extends Construct {
+export class ApplicationTier extends NestedStack {
     constructor(scope: Construct, id: string, props: ApplicationTierProps) {
         super(scope, id);
 

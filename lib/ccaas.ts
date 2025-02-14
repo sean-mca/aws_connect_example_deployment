@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
-import { DeploymentStage } from './cicd/stage';
+import { DeploymentStage } from './cicd/applicationstage';
 
 
 export class CCaaSStack extends cdk.Stack {
@@ -19,12 +19,14 @@ export class CCaaSStack extends cdk.Stack {
     });
 
 
-    // const devWave = pipeline.addWave('devWave');
+
+    const wave = pipeline.addWave('prod');
+
+    wave.addStage(new DeploymentStage(this, 'exampleid', {
+      env: { account: '000000000000', region: 'us-east-1' }
+    }));
 
 
-    // devWave.addStage(new DeploymentStage(this, 'deepveilUSEAST', {
-    //   env: { account: '000000000000', region: 'us-east-1' }
-    // }));
 
   }
 }
