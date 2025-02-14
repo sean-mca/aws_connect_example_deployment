@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
-import { DeploymentStage } from './cicd/applicationstage';
+import { DeploymentStage } from './cicd/stage';
 
 
 export class CCaaSStack extends cdk.Stack {
